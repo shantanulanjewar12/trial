@@ -151,7 +151,13 @@ const ResetPasswordPage = () => {
                     </>
                 )}
 
-                <Link to="/login" className="back-link">← Back to Login</Link>
+                <button 
+                    type="button" 
+                    className="btn btn-primary back-to-login-button" 
+                    onClick={() => navigate('/login')}
+                >
+                    ← Back to Login
+                </button>
             </div>
         </div>
     );

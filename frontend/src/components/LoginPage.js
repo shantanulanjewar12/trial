@@ -58,7 +58,7 @@ const LoginPage = () => {
                     <i className="logo-icon">CE</i> CampusEventHub
                 </Link>
                 <h2>Login to your account</h2>
-                
+
                 <form onSubmit={handleLogin}>
                     <div className="form-group">
                         <label htmlFor="login-email">Email address</label>
@@ -75,24 +75,25 @@ const LoginPage = () => {
                     <div className="form-group password-group">
                         <label htmlFor="login-password">Password</label>
                         <div className="password-input-container">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            id="login-password"
-                            placeholder="Enter your password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                        <button 
-                                type="button" 
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="login-password"
+                                placeholder="Enter your password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            <button
+                                type="button"
                                 className="password-toggle"
                                 onClick={togglePasswordVisibility}
                             >
                                 {showPassword ? "🙈" : "👁️"}
                                 {/* {showPassword ? "👁️" : "🙈"} */}
                             </button>
-                         </div>
+                        </div>
                     </div>
+
 
                     <div className="extra-links">
                         <span></span>
