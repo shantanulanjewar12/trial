@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -16,8 +14,6 @@ const LoginPage = () => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-
-        console.log('Sending to backend:', { email, password });
 
         try {
             const response = await API.post('/api/auth/login', { email, password });
@@ -37,7 +33,6 @@ const LoginPage = () => {
                     toast.info(message);
                     navigate('/verify-email', { state: { email } });
                 } else {
-                    // Invalid credentials or other errors
                     toast.error(message || "Login failed. Please check your credentials.");
                 }
             }
@@ -60,6 +55,7 @@ const LoginPage = () => {
                 <h2>Login to your account</h2>
 
                 <form onSubmit={handleLogin}>
+                    {/* Email */}
                     <div className="form-group">
                         <label htmlFor="login-email">Email address</label>
                         <input
@@ -72,6 +68,7 @@ const LoginPage = () => {
                         />
                     </div>
 
+                    {/* Password */}
                     <div className="form-group password-group">
                         <label htmlFor="login-password">Password</label>
                         <div className="password-input-container">
@@ -89,23 +86,26 @@ const LoginPage = () => {
                                 onClick={togglePasswordVisibility}
                             >
                                 {showPassword ? "🙈" : "👁️"}
-                                {/* {showPassword ? "👁️" : "🙈"} */}
                             </button>
                         </div>
                     </div>
 
-
+                    {/* Forgot Password */}
                     <div className="extra-links">
-                        <span></span>
                         <Link to="/forgot-password">Forgot password?</Link>
                     </div>
 
+                    {/* Login Button */}
                     <div className="form-group">
-                        <button type="submit" className="btn btn-primary">Login</button>
+                        <button type="submit" className="btn btn-primary full-width-btn">
+                            Login
+                        </button>
                     </div>
                 </form>
 
-                <p>Don't have an account? <Link to="/register">Register here</Link></p>
+                <p>
+                    Don't have an account? <Link to="/register">Register here</Link>
+                </p>
             </div>
         </div>
     );
